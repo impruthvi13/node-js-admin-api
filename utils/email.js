@@ -5,9 +5,9 @@ const htmlToText = require('html-to-text');
 module.exports = class Email {
   constructor(user, url) {
     this.to = user.email;
-    this.firstname = user.name.split(' ')[0];
+    this.firstname = user.first_name;
     this.url = url;
-    this.from = `Pruthvisinh Rajput<${process.env.EMAIL_FROM}>`;
+    this.from = `${process.env.EMAIL_FROM}<${process.env.EMAIL_FROM}>`;
   }
 
   newTransport() {
