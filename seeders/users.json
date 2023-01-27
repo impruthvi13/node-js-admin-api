@@ -1,0 +1,40 @@
+[
+  {
+    "_id": "5c8a1d5b0190b214360dc057",
+    "first_name": "Admin",
+    "last_name": "Admin",
+    "email": "admin@admin.com",
+    "contact_no": "1234567890",
+    "password": 12345678,
+    "passwordConfirm": 12345678,
+    "permissions": {
+      "5c8a379a14eb5c17645c9110": {
+        "permissions": "access"
+      },
+      "5c8a37b114eb5c17645c9111": {
+        "permissions": "access,add,edit,delete"
+      },
+      "5c8a37cb14eb5c17645c9112": {
+        "permissions": "access,add,edit,delete"
+      },
+      "5c8a37dd14eb5c17645c9113": {
+        "permissions": "access,add,edit,delete"
+      },
+      "5c8a37f114eb5c17645c9114": {
+        "permissions": "access,add,edit,delete"
+      },
+      "5c8a381714eb5c17645c9115": {
+        "permissions": "access,add,edit,delete"
+      },
+      "5c8a382d14eb5c17645c9116": {
+        "permissions": "access,edit"
+      },
+      "5c8a384114eb5c17645c9117 ": {
+        "permissions": "access"
+      }
+    },
+    "is_active": true,
+    "type": "admin",
+    "profile": null
+  }
+]

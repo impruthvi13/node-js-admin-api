@@ -1,0 +1,74 @@
+[
+  {
+    "_id": "5c8a34ed14eb5c17645c9108",
+    "name": "Dashboard",
+    "icon": "icon-home",
+    "image": "",
+    "icon_type": "line-icons",
+    "sequence": 1,
+    "is_active": true
+  },
+  {
+    "_id": "5c8a355b14eb5c17645c9109",
+    "name": "Users",
+    "icon": "icon-users ",
+    "image": "",
+    "icon_type": "line-icons",
+    "sequence": 2,
+    "is_active": true
+  },
+  {
+    "_id": "5c8a359914eb5c17645c910a",
+    "name": "Role Management",
+    "icon": "fab fa-black-tie",
+    "image": "",
+    "icon_type": "font-awesome",
+    "sequence": 3,
+    "is_active": true
+  },
+  {
+    "_id": "5c8a35b614eb5c17645c910b",
+    "name": "Countries",
+    "icon": "fas fa-flag",
+    "image": "",
+    "icon_type": "font-awesome",
+    "sequence": 4,
+    "is_active": true
+  },
+  {
+    "_id": "5c8a364c14eb5c17645c910c",
+    "name": "States",
+    "icon": "la la-flag",
+    "image": "",
+    "icon_type": "other",
+    "sequence": 5,
+    "is_active": true
+  },
+  {
+    "_id": "5c8a368c14eb5c17645c910d",
+    "name": "Cities",
+    "icon": "la la-city",
+    "image": "",
+    "icon_type": "other",
+    "sequence": 6,
+    "is_active": true
+  },
+  {
+    "_id": "5c8a36a014eb5c17645c910e",
+    "name": "CMS",
+    "icon": "fas fa-book",
+    "image": "",
+    "icon_type": "font-awesome",
+    "sequence": 7,
+    "is_active": true
+  },
+  {
+    "_id": "5c8a36b714eb5c17645c910f",
+    "name": "Site Configuration",
+    "icon": "icon-settings",
+    "image": "",
+    "icon_type": "font-awesome",
+    "sequence": 8,
+    "is_active": true
+  }
+]
