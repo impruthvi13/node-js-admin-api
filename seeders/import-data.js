@@ -13,6 +13,7 @@ mongoose
     useFindAndModify: false,
     useUnifiedTopology: true
   })
+
   .then(() => console.log('Database connection successfull'));
 
 //   Read JSON FILE
