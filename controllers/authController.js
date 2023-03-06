@@ -24,6 +24,7 @@ const createSendToken = (user, statusCode, req, res) => {
   });
   // remove passwrd form output
   user.password = undefined;
+  res.header('Access-Control-Expose-Headers', 'X-Authorization-Token');
   res.header('X-Authorization-Token', token);
   res.status(statusCode).json({
     data: user
