@@ -13,6 +13,7 @@ const cors = require('cors');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./middlewares/errorMiddleware');
 const userRouter = require('./routes/userRoutes');
+const authRouter = require('./routes/authRoutes');
 
 const app = express();
 
@@ -70,7 +71,8 @@ app.use(xss());
 // );
 
 // 3) ROUTES
-app.use('/api/v1/users', userRouter);
+app.use('/api/admin/users', userRouter);
+app.use('/api', authRouter);
 
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
