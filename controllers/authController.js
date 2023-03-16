@@ -14,7 +14,6 @@ const signToken = id => {
 
 const createSendToken = (user, statusCode, req, res) => {
   const token = signToken(user._id);
-
   res.cookie('jwt', token, {
     expires: new Date(
       Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
@@ -27,7 +26,13 @@ const createSendToken = (user, statusCode, req, res) => {
   res.header('Access-Control-Expose-Headers', 'X-Authorization-Token');
   res.header('X-Authorization-Token', token);
   res.status(statusCode).json({
-    data: user
+    data: {
+      id: user.id,
+      full_name: `${user.first_name} ${user.last_name}`,
+      contact_no: user.contact_no || '',
+      email: user.email,
+      profile_photo: user.profile_photo
+    }
   });
 };
 

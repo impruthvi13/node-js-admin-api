@@ -97,6 +97,7 @@ exports.getMe = (req, res, next) => {
   next();
 };
 
+exports.addUsers = factory.createOne(User);
 exports.getAllUsers = factory.getAll(User);
 exports.getUser = factory.getOne(User);
 

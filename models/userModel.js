@@ -56,7 +56,11 @@ const userSchema = new mongoose.Schema(
     },
     permissions: Object
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true }
+  }
 );
 
 userSchema.pre('save', async function(next) {
