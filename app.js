@@ -10,7 +10,6 @@ const cookieParser = require('cookie-parser');
 const compression = require('compression');
 const cors = require('cors');
 
-const AppError = require('./utils/appError');
 const globalErrorHandler = require('./middlewares/errorMiddleware');
 
 const app = express();

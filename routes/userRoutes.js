@@ -1,6 +1,7 @@
 const express = require('express');
 const userController = require('./../controllers/userController');
 const authController = require('./../controllers/authController');
+
 const router = express.Router();
 const adminAuthMiddleware = require('../middlewares/adminAuthMiddleware');
 // Protect all the routes after this middleware
