@@ -51,7 +51,7 @@ exports.getOne = (Model, popOptions) =>
   });
 
 exports.getAll = Model =>
-  catchAsync(async (req, res, next) => {
+catchAsync(async (req, res, next) => {
     // EXECUTE QUERY
     const features = new APIFeatures(Model.find(), req.query)
       .filter()
@@ -62,7 +62,9 @@ exports.getAll = Model =>
     const doc = await features.query;
 
     res.status(200).json({
-      results: doc.length,
-      data: doc
+      data: doc,
+      meta: {
+        message:  `Find Successfully.`
+      }
     });
   });

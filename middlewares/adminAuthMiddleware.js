@@ -1,39 +1,10 @@
-// const jwt = require("jsonwebtoken");
-// const authenticateJWT = (req, res, next) => {
-//     const authHeader = req.headers.authorization;
-//     if (authHeader) {
-//         const token = authHeader.split(' ')[1];
-//         jwt.verify(token, process.env.JWT_SECRETS, (err, user) => {
-//             if (err) {
-//                 return res.status(401).json({
-//                     "data": null,
-//                     "meta": {
-//                         "message": "Unauthorized user " + err,
-//                     }
-//                 });
-//             }
-//             req.user = user;
-//             next();
-//         });
-//     } else {
-//         res.status(401).json({
-//             "data": null,
-//             "meta": {
-//                 "message": "Unauthorized user",
-//             }
-//         });
-//     }
-// };
-
-// module.exports = authenticateJWT;
-
 const { promisify } = require('util');
 const jwt = require('jsonwebtoken');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
 const Admin = require('../models/adminModel');
 
-exports.protect = catchAsync(async (req, res, next) => {
+const adminAuthMiddleware = catchAsync(async (req, res, next) => {
   // 1) Getting token and check of it's there
   let token;
   if (
@@ -58,7 +29,7 @@ exports.protect = catchAsync(async (req, res, next) => {
   const currentUser = await Admin.findById(decoded.id);
   if (!currentUser) {
     return next('The user belonging to this token does no longer exist.', 401);
-  }
+  } 
 
   // 4)Check if user change password after the token was issued
   // if (currentUser.changedPasswordAfter(decoded.iat)) {
@@ -70,6 +41,7 @@ exports.protect = catchAsync(async (req, res, next) => {
   // GRANT ACCESS TO PROTECTED ROUTES
   req.user = currentUser;
   // res.locals.user = currentUser;
-
   next();
 });
+
+module.exports = adminAuthMiddleware;
