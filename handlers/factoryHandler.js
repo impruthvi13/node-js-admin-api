@@ -32,7 +32,10 @@ exports.createOne = Model =>
     const doc = await Model.create(req.body);
 
     res.status(201).json({
-      data: doc
+      data: doc,
+      meta: {
+        message: 'Document created successfully'
+      }
     });
   });
 
@@ -41,17 +44,19 @@ exports.getOne = (Model, popOptions) =>
     let query = Model.findById(req.params.id);
     if (popOptions) query = query.populate(popOptions);
     const doc = await query;
-
     if (!doc) {
       return next(new AppError('Not document found on this ID', 404));
     }
     res.status(200).json({
-      data: doc
+      data: doc,
+      meta: {
+        message: `Record is find successfully.`
+      }
     });
   });
 
 exports.getAll = Model =>
-catchAsync(async (req, res, next) => {
+  catchAsync(async (req, res, next) => {
     // EXECUTE QUERY
     const features = new APIFeatures(Model.find(), req.query)
       .filter()
@@ -64,7 +69,7 @@ catchAsync(async (req, res, next) => {
     res.status(200).json({
       data: doc,
       meta: {
-        message:  `Find Successfully.`
+        message: `Find Successfully.`
       }
     });
   });

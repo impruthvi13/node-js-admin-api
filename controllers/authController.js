@@ -12,7 +12,7 @@ const signToken = id => {
   });
 };
 
-const createSendToken = (user, statusCode, req, res) => {
+const createSendToken = (user, statusCode, req, res, msg = null) => {
   const token = signToken(user._id);
   res.cookie('jwt', token, {
     expires: new Date(
@@ -32,6 +32,9 @@ const createSendToken = (user, statusCode, req, res) => {
       contact_no: user.contact_no || '',
       email: user.email,
       profile_photo: user.profile_photo
+    },
+    meta: {
+      message: msg
     }
   });
 };
@@ -75,7 +78,7 @@ exports.login = catchAsync(async (req, res, next) => {
   }
 
   // 3) If everything ok, send token to client
-  createSendToken(user, 200, req, res);
+  createSendToken(user, 200, req, res, "Login successfully.");
 });
 
 exports.protect = catchAsync(async (req, res, next) => {
