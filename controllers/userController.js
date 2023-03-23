@@ -73,13 +73,20 @@ exports.updateMe = catchAsync(async (req, res, next) => {
   );
   if (req.file) filteredBody.profile_photo = req.file.filename;
   // 3) Update user document
-  const updatedUser = await User.findByIdAndUpdate(req.user.id, filteredBody, {
-    new: true
-  });
+  const updatedUser = await User.findByIdAndUpdate(
+    req.params.id,
+    filteredBody,
+    {
+      new: true
+    }
+  );
   res.status(200).json({
-    status: 'success',
+    // status: 'success',
     data: {
       updatedUser
+    },
+    meta: {
+      message: 'Updated successfully.'
     }
   });
 });
